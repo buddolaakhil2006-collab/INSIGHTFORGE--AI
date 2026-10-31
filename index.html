@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InsightForge AI | Evidence-Grounded Analytics</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">IF</div><div><b>InsightForge</b><small>AI ANALYTICS</small></div></div>
+    <div class="nav-label">WORKSPACE</div>
+    <a class="nav active" href="#overview">▦ <span>Overview</span></a>
+    <a class="nav" href="#dataset">▤ <span>Dataset</span></a>
+    <a class="nav" href="#analysis">⌕ <span>Ask your data</span></a>
+    <a class="nav" href="#evidence">◈ <span>Evidence</span></a>
+    <div class="sidebar-bottom"><div class="status-dot"></div><span>Local Gemini workspace</span><small>v1.0</small></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><span class="eyebrow">DATA INTELLIGENCE WORKSPACE</span><h1>Evidence-grounded analytics</h1><p>Ask questions. Inspect the calculations. Trust only what is verified.</p></div><div class="top-pill" id="systemStatus"><span class="live-dot"></span> CHECKING SYSTEM</div></header>
+    <section class="hero-row" id="overview">
+      <div class="hero-card"><div class="hero-copy"><span class="eyebrow light">INSIGHTFORGE AI</span><h2>Your data.<br><em>Verified insights.</em></h2><p>Upload a CSV and explore it with natural-language questions. Every supported answer includes its evidence and verification checks.</p><a href="#dataset" class="primary-link">Get started <span>→</span></a></div><div class="hero-orbit"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit-core">IF</div><div class="orbit-node node-a">01</div><div class="orbit-node node-b">02</div><div class="orbit-node node-c">✓</div></div></div>
+      <div class="principle-card"><div class="principle-icon">◇</div><h3>Evidence before answers</h3><p>Language models can interpret and plan. Numerical results come from deterministic calculations, then checks run before the answer is marked verified.</p><div class="principle-foot"><span class="mini-check">✓</span> Traceable by design</div></div>
+    </section>
+    <section class="section" id="dataset">
+      <div class="section-heading"><div><span class="eyebrow">01 / DATA SOURCE</span><h2>Connect a dataset</h2><p>Upload a CSV file. Gemini interprets your question; the analytics engine calculates from your actual rows.</p></div><span id="datasetBadge" class="badge muted">NO DATASET</span></div>
+      <div class="upload-panel" id="dropZone">
+        <div class="upload-icon">↑</div><div><h3>Drop your CSV file here</h3><p>or choose a file from your computer · CSV · up to 10 MB</p></div>
+        <label class="button secondary" for="fileInput">Browse files</label><input id="fileInput" type="file" accept=".csv,text/csv" hidden>
+      </div>
+      <div id="datasetInfo" class="dataset-info hidden"></div>
+      <div id="profileGrid" class="stats-grid hidden"></div>
+      <div id="previewWrap" class="table-wrap hidden"><div class="table-title"><b>Dataset preview</b><span>First 50 rows</span></div><div class="table-scroll"><table id="previewTable"></table></div></div>
+    </section>
+    <section class="section" id="analysis">
+      <div class="section-heading"><div><span class="eyebrow">02 / NATURAL LANGUAGE ANALYSIS</span><h2>Ask your data</h2><p>Ask questions about your own dataset in natural language. Gemini helps interpret the request.</p></div></div>
+      <div class="question-card">
+        <label for="questionInput">YOUR QUESTION</label>
+        <textarea id="questionInput" rows="2" placeholder="e.g. Which region made the most money?"></textarea>
+        <div class="question-bottom"><div class="suggestions"><button class="suggestion">What is the total revenue?</button><button class="suggestion">Which region made the most money?</button><button class="suggestion">Which product sold the most items?</button><button class="suggestion">Show average quantity by region</button><button class="suggestion">How many rows are in this dataset?</button></div><button id="analyzeBtn" class="button primary" disabled>Analyze question <span>→</span></button></div>
+      </div>
+      <div id="workflow" class="workflow hidden"></div>
+      <div id="answerCard" class="answer-card hidden"></div>
+    </section>
+    <section class="section" id="evidence">
+      <div class="section-heading"><div><span class="eyebrow">03 / TRUST & TRACEABILITY</span><h2>How InsightForge checks results</h2><p>A compact view of the evidence-gated workflow used in this prototype.</p></div></div>
+      <div class="agent-grid">
+        <div class="agent-step"><span>01</span><b>Intent</b><small>Interpret the question</small></div><div class="agent-arrow">→</div>
+        <div class="agent-step"><span>02</span><b>Plan</b><small>Choose a supported operation</small></div><div class="agent-arrow">→</div>
+        <div class="agent-step"><span>03</span><b>Analytics</b><small>Calculate from CSV rows</small></div><div class="agent-arrow">→</div>
+        <div class="agent-step"><span>04</span><b>Evidence</b><small>Record values and formula</small></div><div class="agent-arrow">→</div>
+        <div class="agent-step verify"><span>05</span><b>Verify</b><small>Check before reporting</small></div>
+      </div>
+      <div class="notice"><b>Evidence-first architecture</b><p>Gemini-powered Intent, Planner and Insight roles interpret questions and explain results. Data profiling, numerical calculations, evidence creation and independent checks run in Python. Agent stages are shown transparently; no AI-generated code is executed.</p></div>
+    </section>
+    <footer><div class="brand small-brand"><div class="brand-mark">IF</div><div><b>InsightForge AI</b><small>Evidence-grounded analytics</small></div></div><span>Final-year project prototype · Built for learning and evaluation</span></footer>
+  </main>
+</div>
+<div id="toast" class="toast"></div>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>

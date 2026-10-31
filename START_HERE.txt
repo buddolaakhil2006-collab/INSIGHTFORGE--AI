@@ -1,0 +1,15 @@
+INSIGHTFORGE AI — START HERE
+
+1. Extract this ZIP.
+2. Open the folder in VS Code.
+3. Read SETUP_GUIDE.md.
+4. Create a Gemini API key: https://aistudio.google.com/app/apikey
+5. Copy .env.example to .env and paste the key into GEMINI_API_KEY=...
+6. In the VS Code terminal run:
+   python -m venv .venv
+   .venv\Scripts\activate
+   pip install -r requirements.txt
+   python app.py
+7. Open http://127.0.0.1:5000
+
+Never share your .env file or Gemini API key.
